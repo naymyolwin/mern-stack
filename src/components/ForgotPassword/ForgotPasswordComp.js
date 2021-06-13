@@ -6,12 +6,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-const LoginComp = ({
+const ForgotPasswordComp = ({
   email,
-  password,
   handleEmailChange,
-  handlePasswordChange,
-  handleLoginPress,
+  handleResetPress,
   handleFormSwitch,
 }) => {
   return (
@@ -19,7 +17,7 @@ const LoginComp = ({
       <Container>
         <Row>
           <Col>
-            <h2 className="text-secondary text-center">Login</h2>
+            <h2 className="text-secondary text-center">Reset Password</h2>
             <hr />
             <Form>
               <Form.Group>
@@ -32,22 +30,13 @@ const LoginComp = ({
                   onChange={handleEmailChange}
                 />
               </Form.Group>
-              <Form.Group>
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  required
-                  value={password}
-                  onChange={handlePasswordChange}
-                />
-              </Form.Group>
+
               <Button
                 type="submit"
-                onClick={handleLoginPress}
+                onClick={handleResetPress}
                 variant="outline-dark"
               >
-                Login
+                Reset Password
               </Button>
             </Form>
           </Col>
@@ -56,7 +45,7 @@ const LoginComp = ({
         <Row>
           <Col>
             <a href="#!" onClick={handleFormSwitch}>
-              Forget Password?
+              Login Now
             </a>
           </Col>
         </Row>
@@ -65,13 +54,11 @@ const LoginComp = ({
   );
 };
 
-export default LoginComp;
+export default ForgotPasswordComp;
 
-LoginComp.propTypes = {
+ForgotPasswordComp.propTypes = {
   email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
   handleEmailChange: PropTypes.func.isRequired,
-  handlePasswordChange: PropTypes.func.isRequired,
-  handleLoginPress: PropTypes.func.isRequired,
+  handleResetPress: PropTypes.func.isRequired,
   handleFormSwitch: PropTypes.func.isRequired,
 };
