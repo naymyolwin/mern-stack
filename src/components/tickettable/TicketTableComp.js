@@ -1,8 +1,8 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import PropTypes from "prop-types";
 
 const TicketTableComp = ({ tickets }) => {
-  console.log(tickets.length);
   return (
     <Table striped bordered hover>
       <thead>
@@ -26,7 +26,7 @@ const TicketTableComp = ({ tickets }) => {
         ) : (
           <tr>
             <td colSpan="4" className="text-center">
-              No Opened Ticket
+              No ticket to show
             </td>
           </tr>
         )}
@@ -36,3 +36,7 @@ const TicketTableComp = ({ tickets }) => {
 };
 
 export default TicketTableComp;
+
+TicketTableComp.propTypes = {
+  tickets: PropTypes.array.isRequired,
+};
