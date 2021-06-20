@@ -5,6 +5,8 @@ import classes from "./MessageHistoryComp.module.css";
 const MessageHistoryComp = ({ msg }) => {
   if (!msg) {
     return null;
+  } else {
+    console.log(msg);
   }
 
   return msg.map((row, i) => (

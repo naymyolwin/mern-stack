@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import SearchFormComp from "../../components/searchform/SearchFormComp";
 import TicketTableComp from "../../components/tickettable/TicketTableComp";
 import tickets from "../../assets/data/dummyticket.json";
+import { Link } from "react-router-dom";
 
 const TicketListPage = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -32,7 +33,9 @@ const TicketListPage = () => {
       </Row>
       <Row className="mt-4">
         <Col>
-          <Button variant="dark">Add New Ticket</Button>
+          <Link to="/add-ticket">
+            <Button variant="dark">Add New Ticket</Button>
+          </Link>
         </Col>
         <Col className="text-right">
           <SearchFormComp

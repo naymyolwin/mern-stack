@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,11 +7,22 @@ import BreadcrumbComp from "../../components/breadcrumb/BreadcrumbComp";
 import tickets from "../../assets/data/dummyticket.json";
 import MessageHistoryComp from "../../components/messagehistory/MessageHistoryComp";
 import UpdateTicketComp from "../../components/updateticket/UpdateTicketComp";
+import { useParams } from "react-router-dom";
 
 const TicketPage = () => {
-  const ticket = tickets[0];
+  const { tId } = useParams();
+  //const ticket = tickets[tId];
 
   const [message, setMessage] = useState("");
+  const [ticket, setTicket] = useState("");
+
+  useEffect(() => {
+    for (let index = 0; index < tickets.length; index++) {
+      if (tickets[index].id.toString() === tId) {
+        setTicket(tickets[index]);
+      }
+    }
+  }, [message, tId]);
 
   const handleOnChange = (e) => {
     setMessage(e.target.value);
@@ -41,7 +52,7 @@ const TicketPage = () => {
       </Row>
       <Row className="mt-4">
         <Col>
-          <MessageHistoryComp msg={ticket.history} />
+          {ticket.history && <MessageHistoryComp msg={ticket.history} />}
         </Col>
       </Row>
       <hr />

@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 import TicketTableComp from "../../components/tickettable/TicketTableComp";
 import tickets from "../../assets/data/dummyticket.json";
@@ -18,12 +19,14 @@ const DashboardPage = () => {
       </Row>
       <Row>
         <Col className="text-center mt-5 mb-2">
-          <Button
-            variant="secondary"
-            style={{ "fontSize": "2rem", "padding": "10px 30px" }}
-          >
-            Add new Ticket
-          </Button>
+          <Link to="/add-ticket">
+            <Button
+              variant="secondary"
+              style={{ "fontSize": "2rem", "padding": "10px 30px" }}
+            >
+              Add new Ticket
+            </Button>
+          </Link>
         </Col>
       </Row>
       <Row>
